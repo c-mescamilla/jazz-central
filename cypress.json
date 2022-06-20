@@ -1,0 +1,9 @@
+{
+    "testFiles": "**/*.{feature,features}",
+    
+    "env":{
+        "url":"https://fbflurry-uat01.jazz-oms.com/account/login?next=/",
+        "userName":"c-miguel.gonzalez@cart.com",
+        "password":"Changeme123!"
+    }
+}

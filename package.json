@@ -1,0 +1,23 @@
+{
+  "name": "cart-miguel",
+  "version": "1.0.0",
+  "description": "Primer proyecto en cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cypress",
+    "cucumber"
+  ],
+  "author": "Miguel Gonzalez",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^9.7.0",
+    "cypress-cucumber-preprocessor": "^4.3.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "stepDefinitions": "./cypress/integration/"
+  }
+}
