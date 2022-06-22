@@ -1,7 +1,7 @@
 {
-  "name": "cart-miguel",
+  "name": "JazzCentral",
   "version": "1.0.0",
-  "description": "Primer proyecto en cypress",
+  "description": "Automation project in Cypress with Gherkin for Jazz Central",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,10 @@
     "cypress",
     "cucumber"
   ],
-  "author": "Miguel Gonzalez",
+  "author": [
+    "Miguel Gonzalez",
+    "Marbella Escamilla"
+  ],
   "license": "ISC",
   "dependencies": {
     "cypress": "^9.7.0",
