@@ -39,7 +39,7 @@ Then('A user enter email', (table) => {
 })
 
 And("A user clicks on Reset Password button", () => {
-    loginPage.clickResetPasswordBtn()
+    loginPage.clickResetPasswordBtn() 
 })
 
 And('Verify user receiving {string} message', (textMessage) => {
