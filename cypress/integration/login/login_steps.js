@@ -22,9 +22,12 @@ Then("A user clicks on Logout button", () => {
     loginPage.clickLogout()
 })
 
-/*
+
 When('A user clicks on Forgot password button', () => {
     loginPage.clickResetBtn()
+    Cypress.on('uncaught:exception', (err, runnable) => {
+        return false
+    })
 })
 
 And('Verify user will {string} message', (textMessage) => {
@@ -38,5 +41,9 @@ Then('A user enter email', (table) => {
 })
 
 And("A user clicks on Reset Password button", () => {
-    loginPage.clickResetPasswordBtn()
-})*/
+    loginPage.clickResetPasswordBtn() 
+})
+
+And('Verify user receiving {string} message', (textMessage) => {
+    loginPage.elements.resetSendMessage().should('contain', textMessage)
+})

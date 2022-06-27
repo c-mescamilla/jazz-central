@@ -9,8 +9,9 @@ class loginPage {
         logoutBtn: () => cy.get('#logout_topnav'),
         resetBtn: () => cy.get('#reset-password > small'),
         logoutMessage: () => cy.get('.login-logo'),
-        emailInput: () => cy.get('#wrapper > div > div > form > input'),
-        resetPasswordBtn: () => cy.get('#resset-submit-btn')
+        emailInput: () => cy.get('.form-control'),
+        resetPasswordBtn: () => cy.get('#resset-submit-btn'),
+        resetSendMessage: () => cy.get('div > strong')
     }
 
     typeUsername(username) {
