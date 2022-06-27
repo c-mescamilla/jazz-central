@@ -1,43 +1,23 @@
-Feature: Login/logout mechanism
+Feature: Primera prueba cucumber
 
-    Tests for the login mechanism and logout
+    Test of cucumber preprocessor working
 
-    Background:
-        Given Go to Jazz Central page
-        And A user will "Welcome to Jazz Central" message
+@test1
+Scenario Outline: Access to Jazz Central
+    Given Go to Jazz Central page
+    And Check is available
+    When Type user '<name>'
+    And Type '<password>'
+    Then Click on Login
+    And Verify that it is inside
 
-    @test1
-    Scenario: Login with valid credentials
-        When A user enter credentials
-            | username                   | password      |
-            | c-miguel.gonzalez@cart.com | Changeme123!1 |
-        And A user clicks on Login button
-        And Verify that it is inside "Orders"
+    Examples:
+        | name                           | password    |
+        | c-miguel.gonzalez@cart.com     | Changeme123!1|
+        | c-Marbella.Escamilla@cart.com  | Changeme123!1|
 
-    @test2
-    Scenario: Logout
-        When A user enter credentials
-            | username                   | password      |
-            | c-miguel.gonzalez@cart.com | Changeme123!1 |
-        And A user clicks on Login button
-        And Verify that it is inside "Orders"
-        Then A user clicks on Logout button
-        And A user will "You have been logged out." message
-
-    @test3
-    Scenario: Login with invalid credentials
-        When A user enter credentials
-            | username                      | password         |
-            | c-marbella.escamilla@cart.com | incorretpassword |
-        And A user clicks on Login button
-        And A user will "Unable to Login" message
-
-    @test4
-    Scenario: Reset password
-        When A user clicks on Forgot password button
-        And Verify user will "Forgot Password" message
-        Then A user enter email
-            | username                      |
-            | c-marbella.escamilla@cart.com |
-        And A user clicks on Reset Password button
-        And Verify user receiving "Password Reset Sent!" message
+@test2 @focus
+Scenario: open home page
+    Given I am in login page
+    When I enter as register user
+    Then I see homepage
