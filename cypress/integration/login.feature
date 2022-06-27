@@ -31,13 +31,3 @@ Feature: Login/logout mechanism
             | c-marbella.escamilla@cart.com | incorretpassword |
         And A user clicks on Login button
         And A user will "Unable to Login" message
-
-    @test4
-    Scenario: Reset password
-        When A user clicks on Forgot password button
-        And Verify user will "Forgot Password" message
-        Then A user enter email
-            | username                      |
-            | c-marbella.escamilla@cart.com |
-        And A user clicks on Reset Password button
-        And Verify user receiving "Password Reset Sent!" message
