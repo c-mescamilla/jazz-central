@@ -1,3 +1,4 @@
+import cypress from "cypress";
 import { When, Then, And } from "cypress-cucumber-preprocessor/steps";
 import loginPage from '../pageObjects/loginPage'
 
@@ -14,6 +15,7 @@ And("A user clicks on Login button", () => {
 
 And("Verify that it is inside {string}", (ordersTitle) => {
     loginPage.elements.verifyTitle().should('contain', ordersTitle)
+    cy.wait(3000)
 })
 
 Then("A user clicks on Logout button", () => {
