@@ -1,14 +1,12 @@
 import { Assertion } from "chai";
 import { Before, Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
+import tenantPage from '../pageObjects/tenantPage'
 
 And("I click on tenant dropdown", () => {
-    //TEA Living
-    cy.get('#navbar-list-tenant').click({force: true})
-    cy.wait(500)
+    tenantPage.selectParentTenant()
 })
 
-And("I select child tenant ", () => {
-    //TEA Living
-    cy.get('#navbar-list-tenant').select('Zenfuel')
-    cy.wait(500)
+And("I select a child tenant from the parent tenant group", () => {
+    tenantPage.selectChildTenant()
 })
+
