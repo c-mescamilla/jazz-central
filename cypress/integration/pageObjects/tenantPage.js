@@ -4,6 +4,7 @@ class tenantPage {
         tenantList: () => cy.get('#view-as-tenant-select')
     }
 
+//creates array that gets all elements of the tenant dropdown
 selectParentTenant() {
     var arrItems = []
     cy.get('#view-as-tenant-select').find('option').each(($el) => {
@@ -16,6 +17,7 @@ selectParentTenant() {
     })
     cy.wait(3000)
 }
+//creates array that gets only the child elements of the tenant dropdown
 selectChildTenant() {
     var arrItems = []
     var arroptions = []
