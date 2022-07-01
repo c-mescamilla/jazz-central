@@ -16,10 +16,13 @@ Feature: Orders
         Given Go to Jazz Central page
         And A user will "Welcome to Jazz Central" message
         And Success login with credentials
-        And I select the "TEA Living" in the list   
+        And I select the "TEA Living" in the list  
+        And I select "Orders" menu option 
 
 
     Scenario: Scenario Outline name: Test different date ranges in the Open, Closed and Canceled tabs in the View Orders screen
+        Then I select "View Orders" view
+        
 
         
        

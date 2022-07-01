@@ -35,7 +35,12 @@ And("A user clicks on the {string} sub-submenu", (submenu) => {
     pagesCommon.elements.thirdmenuList().contains(submenu).click()
 })
 
-//clic on tenant
+//select a tenant to load the view 
 And("I select the {string} in the list", (tenant) => {
     pagesCommon.selectSpecificTenant(tenant)
+})
+
+//Open left container options menu
+And("I select {string} menu option", (option) => {
+    pagesCommon.SelectMenuOption(option)
 })

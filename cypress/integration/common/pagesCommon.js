@@ -10,7 +10,11 @@ class pagesCommon {
     //select a specific tenant
     selectSpecificTenant(tenant) {
         cy.get("#view-as-tenant-select").select(tenant)
-        cy.wait(3000)
+    }
+
+    //Select menu option
+    SelectMenuOption(option) {
+        cy.get("#side-menu > :nth-child(6) > [href='#']").click()
     }
 }
 export default new pagesCommon();
