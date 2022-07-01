@@ -20,8 +20,13 @@ Feature: Orders
         When A user clicks on the "Orders" menu
         
 
-    Scenario: Scenario Outline name: Test different date ranges in the Open, Closed and Canceled tabs in the View Orders screen
+    Scenario: Test different date ranges in the Open, Closed and Canceled tabs in the View Orders screen
         And  A user clicks on the "View Orders" submenu
+        Then I check the "Open" tab option
+        And I select "Start_date" from date range calendar
+        And I select "End_date" from date range calendar
+    
+        
         
 
         
