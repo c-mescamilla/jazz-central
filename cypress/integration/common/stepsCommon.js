@@ -1,6 +1,7 @@
 import { Given, And } from "cypress-cucumber-preprocessor/steps";
 import loginPage from '../pageObjects/loginPage'
 import pagesCommon from '../common/pagesCommon'
+import tenantPage from '../pageObjects/tenantPage'
 
 //Open URL//
 Given("Go to Jazz Central page", () => {
@@ -32,4 +33,9 @@ And("A user clicks on the {string} submenu", (submenu) => {
 //click on the first subsubmenu if it exists
 And("A user clicks on the {string} sub-submenu", (submenu) => {
     pagesCommon.elements.thirdmenuList().contains(submenu).click()
+})
+
+//clic on tenant
+And("I select the {string} in the list", (tenant) => {
+    pagesCommon.selectSpecificTenant(tenant)
 })
