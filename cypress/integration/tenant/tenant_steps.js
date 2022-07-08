@@ -18,3 +18,7 @@ And("I select a child tenant from the parent tenant group", () => {
     })
 })
 
+Then("I verify the reloading of the tenant's page", ()  => {
+    tenantPage.tenantPageReload()
+})
+

@@ -9,9 +9,11 @@ Feature: Tenants
 
     Scenario: Verify tenant tree is displayed correctly
         And I click on tenant dropdown
+        Then I verify the reloading of the tenant's page
 
     Scenario: Switch from the parent tenant to a child tenant
         And I click on tenant dropdown
         And I select a child tenant from the parent tenant group
+        Then I verify the reloading of the tenant's page
 
 

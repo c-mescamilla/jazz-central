@@ -8,14 +8,14 @@ class tenantPage {
 selectParentTenant() {
     var arrItems = []
     cy.get('#view-as-tenant-select').find('option').each(($el) => {
-        cy.log($el.text())
+        //cy.log($el.text())
         arrItems.push($el.text())
     }).then(() => {
         var randomItem = arrItems[Math.floor(Math.random() * arrItems.length)];
-        cy.log(randomItem)
+        cy.log(cy.get('#view-as-tenant-select').select(randomItem))
         cy.get('#view-as-tenant-select').select(randomItem)
     })
-    cy.wait(3000)
+    
 }
 //creates array that gets only the child elements of the tenant dropdown
 selectChildTenant() {
@@ -26,15 +26,18 @@ selectChildTenant() {
     }).then(() => {
         var randomOptions = arroptions[Math.floor(Math.random() * arroptions.length)];
         cy.get('#view-as-tenant-select').children().eq(randomOptions).find('option').each(($el, index) => {
-            cy.log($el.text())
+            //cy.log($el.text())
             arrItems.push($el.text())
         })
     }).then(() => {
         var randomItem = arrItems[Math.floor(Math.random() * arrItems.length)];
-        cy.log(randomItem)
+        cy.log(cy.get('#view-as-tenant-select').select(randomItem))
         cy.get('#view-as-tenant-select').select(randomItem)
     })
-    cy.wait(3000)
+}
+
+tenantPageReload() {
+    cy.get('#side-menu > li > a > span', {timeout: 4000}).should('be.visible').contains('Customers').click
 }
 }
 export default new tenantPage();
