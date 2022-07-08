@@ -110,6 +110,10 @@ class ordersPage {
         })
     }
 
+    getOrderID() {
+        cy.get('.page-title').invoke('attr', 'text')
+    }
+
 
 }
 export default new ordersPage();

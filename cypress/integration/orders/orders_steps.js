@@ -49,3 +49,7 @@ And("I select shipping method", () => {
 Then("I clic on Create Order button", () => {
     orderPage.elements.createOrderButton().click()
 })
+
+Then("I see order ID", () => {
+    orderPage.getOrderID()
+})
