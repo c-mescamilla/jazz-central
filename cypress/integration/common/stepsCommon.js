@@ -38,5 +38,8 @@ And("A user clicks on the {string} sub-submenu", (submenu) => {
 //select a tenant to load the view 
 And("I select the {string} in the list", (tenant) => {
     pagesCommon.selectSpecificTenant(tenant)
+    Cypress.on('uncaught:exception', (err, runnable) => {
+        return false
+    })
 })
 

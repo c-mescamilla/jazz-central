@@ -1,5 +1,8 @@
 {
     "testFiles": "**/*.{feature,features}",
+    "numTestsKeptInMemory": 0,
+    "viewportWidth": 1330,
+    "viewportHeight": 830,
     
     "env":{
         "url":"https://fbflurry-uat01.jazz-oms.com/account/login?next=/",
