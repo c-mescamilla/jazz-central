@@ -33,15 +33,16 @@ class ordersPage {
     }
 
     //Fill order details
-    fillOrderDetails() {
-        cy.contains('div', 'Source Code*').find("[class='select2-selection select2-selection--single']").click().type("  FLAT")
-        cy.get('.select2-results__options', { timeout: 10000 }).should("be.visible").contains('Source Code: FLAT').click()
+    fillOrderDetails(sourceCode) {
+        cy.log(sourceCode)
+        cy.contains('div', 'Source Code*').find("[class='select2-selection select2-selection--single']").type(sourceCode)
+        cy.get('.select2-results__options', { timeout: 20000 }).should("be.visible").contains('Source Code: FLAT').click()
     }
 
     //Search items by item code
-    searchItems() {
+    searchItems(itemCode) {
         cy.get('.row > :nth-child(1) > :nth-child(1) > .select2-container > .selection > .select2-selection').click()
-        cy.get('.select2-search__field').type("8S62901")
+        cy.get('.select2-search__field').type(itemCode)
 
         cy.get('.select2-results__option--highlighted', { timeout: 10000 }).click()
         cy.get(':nth-child(1) > :nth-child(6) > .add-item-quantity').type('1')
@@ -49,16 +50,18 @@ class ordersPage {
         var quantityValue = 0
         var valueAvailable = 0
         var quantityColumn
-        cy.get("[id='product_info']").find("tr td").each(($fila) => {
+        cy.get("[id='product_info']").find("tr td").each((row) => {
             count++
-            if (count == 6) {
-                cy.get($fila).find("input").each(($column) => {
+            //Select column "Quantity"
+            if (count == 5) {
+                cy.get(row).find("input").each(($column) => {
                     quantityValue = $column.val()
                     quantityColumn = $column
                 })
             }
-            if (count == 7) {
-                cy.get($fila).find("input").each((column) => {
+            //Select column "Quantity"
+            if (count == 6) {
+                cy.get(row).find("input").each((column) => {
 
                     valueAvailable = column.val()
 
@@ -76,9 +79,9 @@ class ordersPage {
     }
 
     //Select customer and shipping address
-    addCustomer() {
+    addCustomer(customer) {
         cy.get("#select2-customer-lookup-container").click()
-        cy.get('.select2-search__field').type("Erna")
+        cy.get('.select2-search__field').type(customer)
         cy.get('.select2-results__option--highlighted', { timeout: 10000 }).click()
 
         cy.get("#add-customer-link").click({ force: true })
