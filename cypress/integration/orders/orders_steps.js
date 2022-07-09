@@ -26,30 +26,37 @@ And("I select 90 days before the current date in the calendar", () => {
     orderPage.get90DaysBefore()
 })
 
-Then("I enter source code", () => {
-    orderPage.fillOrderDetails()
+//Get source code from data table
+Then("I enter {string}", (sourceCode) => {
+    orderPage.fillOrderDetails(sourceCode)
 })
 
-Then("I enter item code", () => {
-    orderPage.searchItems()
+//Get barcode from data table
+Then("I enter {string} value", (itemCode) => {
+    orderPage.searchItems(itemCode)
 })
 
-And("I add the customer and shipping address", () => {
-    orderPage.addCustomer()
+//Enter customer name from data table and shipping address
+And("I add the {string} and shipping address", (customer) => {
+    orderPage.addCustomer(customer)
 })
 
+//select the same payment method as the selected customer
 And("I add payment method", () => {
     orderPage.addPayment()
 })
 
+//Select shipping method
 And("I select shipping method", () => {
     orderPage.selectShipping()
 })
 
+//Send the purchase information to generate the purchase order.
 Then("I clic on Create Order button", () => {
     orderPage.elements.createOrderButton().click()
 })
 
+//Generate purchase order code
 Then("I see order ID", () => {
     orderPage.getOrderID()
 })
