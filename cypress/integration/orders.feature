@@ -20,20 +20,22 @@ Feature: Orders
         When A user clicks on the "Orders" menu
         
 
-    #  Scenario: Test different date ranges in the Open, Closed and Canceled tabs in the View Orders screen
-    #      And  A user clicks on the "View Orders" submenu
-    #      Then I check the "Open" tab option
-    #      And I select the start date in the date range calendar
-    #      And I select the end date in the calendar
-    #      Then I click "Update" button
-    #      Then I check the "Closed" tab option
-    #      And I select the start date in the date range calendar
-    #      And I select the end date in the calendar
-    #      Then I click "Update" button
-    #      Then I check the "Canceled" tab option
-    #      And I select 90 days before the current date in the calendar
-    #      And I select the end date in the calendar
-    #      Then I click "Update" button
+      Scenario: Test different date ranges in the Open, Closed and Canceled tabs in the View Orders screen
+          And  A user clicks on the "View Orders" submenu
+          Then I check the "Open" tab option
+          And I select the start date in the date range calendar
+          And I select the end date in the calendar
+          Then I click "Update" button
+          Then I check the "Closed" tab option
+          And I select the start date in the date range calendar
+          And I select the end date in the calendar
+          Then I click "Update" button
+          Then I check the "Canceled" tab option
+          And I select 90 days before the current date in the calendar
+          And I select the end date in the calendar
+          Then I click "Update" button
+
+Scenario: 
         
     Scenario Outline: Create orders with single and multiple lines
         And  A user clicks on the "Create Order" submenu
@@ -42,8 +44,8 @@ Feature: Orders
         And I add the "<customer>" and shipping address
         And I add payment method
         And I select shipping method
-        #Then I clic on Create Order button
-        #Then I see order ID
+        Then I clic on Create Order button
+        Then I see order ID
         Examples:
             | source_code | item_code | customer |
             | FLAT       | 8S62901    | Erna     |
